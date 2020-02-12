@@ -1,0 +1,12 @@
+extends layout
+
+append head
+  title #{exercise} * #{course} * Asterism
+
+block content
+  h1 ⁂ #{exercise}
+  h2: a(href=zip) &darr; zip
+  
+  each file in files
+    kbd= file.name
+    pre.pre-scrollable.bg-light.rounded.p-2= file.content

@@ -1,0 +1,10 @@
+h1, code {
+  color: var(--indigo);
+}
+a {
+  color: var(--orange);
+}
+a:hover {
+  color: var(--orange);
+  filter: brightness(85%);
+}
