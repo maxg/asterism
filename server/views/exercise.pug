@@ -5,8 +5,13 @@ append head
 
 block content
   h1 ⁂ #{exercise}
-  h2: a(href=zip) &darr; zip
+  h2
+    a(href=student) &rarr; instructions
+    |  for students
+    br
+    a(href=`${student}.zip`) &darr; zip file
   
   each file in files
     kbd= file.name
+    a(href=`/${course}/${section}/${exercise}/${file.name}`)  &larr; watch
     pre.pre-scrollable.bg-light.rounded.p-2= file.content

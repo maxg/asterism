@@ -2,7 +2,7 @@
 
 cd /vagrant
 
-#source setup/setup.sh
+source setup/setup.sh
 
 # Generate self-signed certificate
 (

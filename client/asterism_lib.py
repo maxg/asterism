@@ -34,10 +34,9 @@ async def watch_and_send(url, token, filenames):
                 print(f'* Sending {os.path.relpath(filename)}')
                 with open(filename) as c:
                     data = urllib.parse.urlencode({
-                        'name': os.path.basename(filename),
                         'content': c.read(),
                     }).encode()
-                urllib.request.urlopen(f'{url}/push/{token}', data)
+                urllib.request.urlopen(f'{url}/push/{os.path.basename(filename)}/{token}', data)
                 sent[filename] = digest
         await asyncio.sleep(10)
 
@@ -60,6 +59,11 @@ async def main(url, extension):
     '''
     signal.signal(signal.SIGINT, stop)
     print('*** Asterism *** press ctrl-c to stop')
+    
+    # required Python version
+    py_min_version = (3, 8)
+    if sys.version_info < py_min_version:
+        exit(f'*** Python {".".join(map(str, py_min_version))} required')
     
     # find files in the same directory
     candidates = [

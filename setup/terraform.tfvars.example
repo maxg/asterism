@@ -1,0 +1,5 @@
+bucket = "...-terraform" # S3 bucket & SSM parameter root
+key = "asterism"         # app name
+region = "us-east-1"
+access_key = "..."
+secret_key = "..."

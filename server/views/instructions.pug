@@ -1,0 +1,36 @@
+extends layout
+
+append head
+  title #{exercise} * #{course} * Asterism
+
+block content
+  h1 ⁂ #{exercise}
+  
+  p Asterism is a tool for file-based collaborative programming in the classroom.
+  
+  h2: ol(start=1): li Download and unzip #[a(href=zip) &darr; #{exercise}.zip]
+  
+  p.pl-4 You should find
+    +filenames([ ...files, { name: 'asterism.py' } ])
+    | .
+  
+  h2: ol(start=2): li Run the script #[code asterism.py]
+  
+  p.pl-4 Requires Python 3.8. It will open a browser window to log you in.
+  
+  h2: ol(start=3): li While it&rsquo;s running, changes are synced...
+  
+  p.pl-4 Your changes to
+    +filenames(files.filter(f => f.magic_mode === 'push'))
+    |  are sent to the server, but only when you save them to disk.
+
+mixin filenames(files)
+  for file, idx in files
+    |  #[code= file.name]
+    if idx === files.length-1
+    else if idx === files.length-2
+      if files.length > 2
+        | ,
+      |  and
+    else
+      | ,

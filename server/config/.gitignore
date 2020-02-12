@@ -1,2 +1,2 @@
-env-*.js
+env-development.js
 tls/*.pem

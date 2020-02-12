@@ -1,0 +1,6 @@
+web_host = "asterism.example.com"
+le_contact = "...@example.com"
+oidc_host = "oidc.example.com"
+oidc_id = "omnivore"
+oidc_secret = "..."
+oidc_email_domain = "example.com"

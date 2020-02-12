@@ -9,5 +9,8 @@ apt-get update
 # Apt packages
 apt-get install -y python-pip jq nodejs build-essential certbot git
 
+# AWS CLI
+pip install awscli --upgrade
+
 # Time zone
 timedatectl set-timezone America/New_York

@@ -1,0 +1,21 @@
+extends layout
+
+append head
+  - fullwidth = true
+  title #{file} * #{course} * Asterism
+
+block content
+  h1 ⁂ #{exercise} #[code #{file}]
+  
+  #files.row
+  
+  kbd starting code
+  pre#starting.small.text-white.bg-secondary.rounded.p-2=starting
+  
+  template#file
+    div.col-md-6.col-xl-4
+      kbd
+      pre.bg-light.rounded.p-2
+  
+  script(src='/static/diff.min.js')
+  script(src='/static/watch.js')
